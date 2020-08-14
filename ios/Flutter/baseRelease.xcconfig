@@ -1,0 +1,6 @@
+#include "Generated.xcconfig"
+
+FLUTTER_TARGET=lib/main-base.dart
+
+ASSET_PREFIX=base
+BUNDLE_NAME=Munchkin Base

@@ -1,0 +1,23 @@
+name: presentation
+description: Presentation layer with all styles and widgets
+
+publish_to: "none"
+
+version: 0.0.1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  core:
+    path: ../core
+  flutter_localizations:
+    sdk: flutter
+  flutter:
+    sdk: flutter
+  munchkin:
+    path: ../..
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

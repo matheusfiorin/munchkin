@@ -1,0 +1,72 @@
+name: munchkin
+description: A new Flutter project.
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  core:
+    path: local_packages/core
+  data_connection_checker: ^0.3.4
+  get_it: ^4.0.4
+  http: ^0.12.2
+  presentation:
+    path: local_packages/presentation
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^0.1.3
+
+dev_dependencies:
+  flutter_flavorizr: ^1.0.7
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/base/logo.png
+    - assets/cat/logo.png
+    - assets/dog/logo.png
+
+flavorizr:
+  app:
+    android:
+      flavorDimensions: "flavor-type"
+    ios:
+
+  flavors:
+    base:
+      app:
+        name: "Munchkin Base"
+
+      android:
+        applicationId: "com.fiorin.munchkin"
+
+      ios:
+        bundleId: "com.fiorin.munchkin"
+
+    catVersion:
+      app:
+        name: "Cat Version"
+
+      android:
+        applicationId: "com.fiorin.catversion"
+
+      ios:
+        bundleId: "com.fiorin.catversion"
+
+    dogVersion:
+      app:
+        name: "Dog Version"
+
+      android:
+        applicationId: "com.fiorin.dogversion"
+
+      ios:
+        bundleId: "com.fiorin.dogversion"
