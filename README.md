@@ -1,6 +1,6 @@
 # munchkin
 
-A base Flutter template for generating multi-flavored apps.
+An open-source multi-flavored template for flutter applications.
 
 ## Quick start guide
 
