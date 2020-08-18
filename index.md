@@ -1,37 +1,53 @@
-## Welcome to GitHub Pages
+# munchkin
 
-You can use the [editor on GitHub](https://github.com/matheusfiorin/munchkin/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+An open-source multi-flavored template for flutter applications.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Quick start guide
 
-### Markdown
+In order to create and manage our flavors, we're going to use the [flutter_flavorizr](https://pub.dev/packages/flutter_flavorizr) package.
+To install all dependencies or run our built-in flavors, use the Makefile to view all possibilities:
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```
+make help
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+### Creating a new flavor
 
-### Jekyll Themes
+To create a new flavor, you need to edit the `flavorizr` key at the `pubspec.yaml`, like this:
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/matheusfiorin/munchkin/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+```
+flavorizr:
+  app:
+    ...
 
-### Support or Contact
+  flavors:
+    ...
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+    new_flavor:
+      app:
+        name: "New Flavor Name"
+
+      android:
+        applicationId: "com.fiorin.newflavor"
+
+      ios:
+        bundleId: "com.fiorin.newflavor"
+```
+
+To finally generate all `Android`/`iOS` files, you need to run:
+
+```
+flutter pub run flutter_flavorizr
+```
+
+This will create all needed configuration in order to use flavors at Android/iOS platforms and automatically create a `main-newflavor.dart` and the custom configs at `flavors.dart`
+
+> Notes: Our `lib/` filenames and configuration is managed by the `flutter_flavorizr` package, so we can't override, create or manage by ourselves files like `flavors.dart`, `app.dart` and `main-<flavor>.dart`. So, I strongly recommend using my custom `make install-custom-flavors` in order to use this architecture correctly.
+
+### Running a custom flavor
+
+In order to run your app with any flavor in your device, you simply need to run:
+
+```
+flutter run --flavor <flavorName> -t lib/main-<flavorName>.dart
+```
