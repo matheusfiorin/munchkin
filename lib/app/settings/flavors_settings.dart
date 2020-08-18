@@ -5,8 +5,6 @@ import 'package:presentation/design/style.dart';
 
 const Map<Flavor, AppSettings> flavorSettings = {
   Flavor.BASE: _baseSettings,
-  Flavor.CATVERSION: _catVersionSettings,
-  Flavor.DOGVERSION: _dogVersionSettings,
 };
 
 const _baseSettings = AppSettings(
@@ -15,18 +13,6 @@ const _baseSettings = AppSettings(
   apiSettings: _developmentApiSettings,
   buildStyle: _buildBaseStyle,
 );
-const _catVersionSettings = AppSettings(
-  title: 'Cat Version',
-  assetFolder: 'cat/',
-  apiSettings: _developmentApiSettings,
-  buildStyle: _buildCatVersionStyle,
-);
-const _dogVersionSettings = AppSettings(
-  title: 'Dog Version',
-  assetFolder: 'dog/',
-  apiSettings: _developmentApiSettings,
-  buildStyle: _buildDogVersionStyle,
-);
 
 const _developmentApiSettings = ApiSettings(
   baseUrl: 'http://localhost:3000',
@@ -34,11 +20,3 @@ const _developmentApiSettings = ApiSettings(
 
 FlavorStyle _buildBaseStyle() =>
     FlavorStyle(appBarColor: NamedColors.damagedTan);
-
-FlavorStyle _buildCatVersionStyle() => FlavorStyle(
-      appBarColor: NamedColors.invigoratingHazel,
-      backgroundColor: NamedColors.compensatoryPearl,
-    );
-
-FlavorStyle _buildDogVersionStyle() =>
-    FlavorStyle(appBarColor: NamedColors.compensatoryPearl);

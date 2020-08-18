@@ -49,8 +49,6 @@ class App extends StatelessWidget {
     await b.init();
     await di.init(b);
 
-    await Future.delayed(Duration(seconds: 3));
-
     return HomePage();
   }
 }

@@ -25,14 +25,13 @@ dev_dependencies:
   flutter_flavorizr: ^1.0.7
   flutter_test:
     sdk: flutter
+  mockito: ^4.1.1
 
 flutter:
   uses-material-design: true
 
   assets:
     - assets/base/logo.png
-    - assets/cat/logo.png
-    - assets/dog/logo.png
 
 flavorizr:
   app:
@@ -50,23 +49,4 @@ flavorizr:
 
       ios:
         bundleId: "com.fiorin.munchkin"
-
-    catVersion:
-      app:
-        name: "Cat Version"
-
-      android:
-        applicationId: "com.fiorin.catversion"
-
-      ios:
-        bundleId: "com.fiorin.catversion"
-
-    dogVersion:
-      app:
-        name: "Dog Version"
-
-      android:
-        applicationId: "com.fiorin.dogversion"
-
-      ios:
-        bundleId: "com.fiorin.dogversion"
+  
