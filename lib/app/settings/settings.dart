@@ -5,14 +5,7 @@ import 'package:presentation/design/style.dart';
 class Settings {
   static AppSettings _current;
 
-  static final _defaultAppSettings = AppSettings(
-    title: 'Base App',
-    assetFolder: 'base',
-    apiSettings: ApiSettings(
-      baseUrl: 'http://localhost:3000',
-    ),
-    buildStyle: () => FlavorStyle(),
-  );
+  static final _defaultAppSettings = AppSettings();
 
   static AppSettings get current => _current ?? _defaultAppSettings;
 
@@ -21,12 +14,20 @@ class Settings {
 
 @immutable
 class AppSettings {
+  static FlavorStyle _defaultBuildStyle() => FlavorStyle();
+  static const _defaultApiSettings = ApiSettings(
+    baseUrl: 'http://localhost:3000',
+  );
+
   const AppSettings({
-    @required this.title,
-    @required this.assetFolder,
-    @required this.apiSettings,
-    @required this.buildStyle,
-  });
+    String title,
+    String assetFolder,
+    ApiSettings apiSettings,
+    FlavorStyle Function() buildStyle,
+  })  : title = title ?? 'Base App',
+        assetFolder = assetFolder ?? 'base',
+        apiSettings = apiSettings ?? _defaultApiSettings,
+        buildStyle = buildStyle ?? _defaultBuildStyle;
 
   final baseFolder = 'assets/';
   final String title;
